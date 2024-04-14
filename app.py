@@ -39,8 +39,26 @@ def learn():
 @app.route('/quiz')
 def quiz():
     quiz_data = data['quizQuestions']
-    return render_template('quiz.html', quiz=quiz_data)
+    return render_template('Quiz/quiz.html', quiz=quiz_data)
 
+@app.route('/quiz/<int:question_number>')
+def quiz_question(question_number):
+    #User has started quiz
+    if question_number == 1:
+        update_user({'step': 2, 'currentQuizQuestion': 1, 'quizScore': 0})
+
+    quiz_data = data['quizQuestions']
+    question = quiz_data[question_number - 1]
+
+    if question['type'] == 'QUIZ_MULTIPLE_CHOICE':
+        return render_template('Quiz/multiple_choice.html', question=question, question_number=question_number, score=data['user']['quizScore'], total_num_questions=len(quiz_data))
+    
+
+    return render_template('Quiz/mapping.html', question=question, question_number=question_number, score = data['user']['quizScore'], total_num_questions=len(quiz_data))
+
+@app.route('/quiz_results')
+def quiz_results():
+    return render_template('Quiz/quiz_results.html', score=data['user']['quizScore'], total_num_questions=len(data['quizQuestions']))
 
 if __name__ == '__main__':
     app.run()

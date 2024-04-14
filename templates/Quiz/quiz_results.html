@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+    <script src="{{ url_for('static', filename='Quiz/multiple_choice.js') }}"></script>
+    <script>
+        let score = {{ score }};
+        let total_num_questions = {{ total_num_questions }};
+    </script>
+</head>
+<div class="row">
+    <div class="col-md-12 center">
+        <div class="header">Quiz Results</div>
+        <p>You scored {{ score }} out of {{ total_num_questions }} questions correct.</p>
+        <p>{% if score/total_num_questions >= 0.8 %}Congratulations! You passed the quiz!{% else %}Sorry, you did not pass the quiz. Please try again.{% endif %}</p>
+        <a href="{{ url_for('learn') }}" class="btn btn-primary">Go back to learning</a>
+        <a href="{{ url_for('quiz') }}" class="btn btn-primary">Return to Quiz</a>
+    </div>
+</div>
+
+{% endblock %}

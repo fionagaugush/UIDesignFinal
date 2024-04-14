@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+    <script src="{{ url_for('static', filename='Quiz/mapping.js') }}"></script>
+    <script>
+        let question={{ question|tojson }};
+        let question_number = {{ question_number }};
+        let score = {{ score }};
+        let total_num_questions = {{ total_num_questions }};
+    </script>
+</head>
+<div class="row">
+    <div class="col-md-12 question">
+        <div class="question-text"> <span class="question-number">Question {{question_number}}</span> {{question.questionText}}</h1>
+        </div>
+        <div id="question-audio">
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div id="audio-choices">
+                </div>
+
+            </div>
+            <div class="col-md-5">
+                <div id="bird-choices"></div>
+            </div>
+            <div class="col-md-3">  
+                <div id="score">
+                    Score: <span id="score-value"> {{score}}</span>
+                </div>  
+                <div id="feedback">
+                </div>
+            </div>
+        </div>  
+        <div id = "error-message" class="alert-danger"></div>
+        <div id="submit-button" class="btn btn-primary">Submit</div>
+        <div id="next-question-button" class="btn btn-primary"></div> 
+
+    </div>
+</div>
+
+{% endblock %}
