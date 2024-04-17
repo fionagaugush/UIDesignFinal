@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<script>  var query= {{query|tojson }} </script>
+<script>  var results= {{results|tojson }} </script>
+Search Results for : "{{query}}" <br>
+{% for result in results %}
+<a href = "/learn/{{result.id}}">{{result.name}} </a> <br>
+{% endfor %}
+{% endblock %}

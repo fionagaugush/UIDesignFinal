@@ -27,7 +27,13 @@ def update_user_step():
     if not success:
         return jsonify({'success': False, 'error': error}), 400
     return jsonify({'success': True})
+@app.route('/search', methods=['POST'])
+def search():
+    query = request.form.get('query')
+    birds_data = data['birds']
+    results = [bird for bird in birds_data.values() if bird['name'].lower().startswith(query.lower())]
 
+    return render_template('search_results.html', query=query, results=results)
 
 @app.route('/learn')
 def learn():

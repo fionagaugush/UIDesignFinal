@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--               UNI: jg4733,<fiona>,<angel>                      -->
+    <!--               UNI: jg4733,frg2115,<angel>                      -->
     <!--               <todo: add youtube link here later>              -->
     <meta charset="UTF-8">
     <title>Bird Sounds Learning App</title>
@@ -34,10 +34,11 @@
                     <a class="nav-link" href="/quiz">Quiz</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" action="/search" method="POST">
+                <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
+
         </div>
     </div>
 </nav>
