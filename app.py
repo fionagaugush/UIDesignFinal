@@ -33,9 +33,19 @@ def update_user_step():
 def learn():
     update_user({'step': 1})
     birds_data = data['birds']
-    return render_template('birdsList.html', birds=birds_data)
+    return render_template('Learning/birdsList.html', birds=birds_data)
+@app.route('/learn/<id>')
+def info(id=None):
+    birds_data = data['birds']
+    return render_template("Learning/info.html", id=id, birds= birds_data)
+@app.route('/compare/<first>/<second>')
+def compare(first=None,second=None):
 
 
+    birds_data = data['birds']
+
+
+    return render_template("Learning/compare.html", first=first, second = second, birds= birds_data)
 @app.route('/quiz')
 def quiz():
     quiz_data = data['quizQuestions']
@@ -59,6 +69,8 @@ def quiz_question(question_number):
 @app.route('/quiz_results')
 def quiz_results():
     return render_template('Quiz/quiz_results.html', score=data['user']['quizScore'], total_num_questions=len(data['quizQuestions']))
+
+
 
 if __name__ == '__main__':
     app.run()

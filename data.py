@@ -5,34 +5,125 @@ data = {
         "currentQuizQuestion": 0,
         "quizScore": 0
     },
-    "birds": [
-        {
-            "id": 1,
-            "name": "Dove",
+    "birds": {
+
+        "0":{
+            "id": 0,
+            "name": "Mourning Dove",
             "imageUrl": "birds_image/bird_1.png",
             "soundUrl": "birds_audio/bird_1.mp3",
-            "description": "Short Description",
+            "description": "Low Mournful coo",
+            "call": {
+                "sound": "coo-ah, coo, coo",
+                "type": ["Hoot"],
+                "pattern": ["Falling", "Flat", "Undulating"]
+            },
+            "spottingLocations": ["The Ramble"]
+
+        },
+       "1": {
+            "id": 1,
+            "name": "Great Blue Heron",
+            "imageUrl": "birds_image/BlueHeron.jpeg",
+            "soundUrl": "birds_audio/BlueHeron.mp3",
+            "description": "Harsh Squawk",
             "call": {
                 "sound": "roh, roh, roh",
-                "type": ["Harsh Squawk", "Croak/Quack Scream"],
+                "type": ["Croak/Quack", "Scream"],
                 "pattern": ["Flat", "Simple"]
             },
-            "spottingLocations": ["Location Name1"]
+            "spottingLocations": ["Central Park Lake"]
         },
-        {
+
+       "2": {
             "id": 2,
-            "name": "Other bird",
-            "imageUrl": "birds_image/bird_2.png",
-            "soundUrl": "birds_audio/bird_2.mp3",
-            "description": "Short Description",
+            "name": "Red Tailed Hawk",
+            "imageUrl": "birds_image/Hawk.jpeg",
+            "soundUrl": "birds_audio/Hawk.mp3",
+            "description": "High-pitched descending scream",
             "call": {
-                "sound": "roh, roh, roh",
-                "type": ["Harsh Squawk", "Croak/Quack Scream"],
-                "pattern": ["Flat", "Simple"]
+                "sound": "keeeer",
+                "type": ["Croak/Quack", "Scream"],
+                "pattern": ["Falling", "Simple"]
             },
-            "spottingLocations": ["Location Name1"]
+            "spottingLocations": ["west side of Conservatory Water"]
         },
-    ],
+
+
+        "3":{
+            "id": 3,
+            "name": "House Sparrow",
+            "imageUrl": "birds_image/Sparrow.jpeg",
+            "soundUrl": "birds_audio/Sparrow.mp3",
+            "description": "Shrill monotonous, noisy chirping",
+            "call": {
+                "sound": "Cheep, Cheep",
+                "type": ["Chirp/Chip", "Rattle"],
+                "pattern": ["Falling/Flat"]
+            },
+            "spottingLocations": ["Pilgrim Hill"]
+        },
+
+
+        "4":{
+            "id": 4,
+            "name": "Northern Cardinal",
+            "imageUrl": "birds_image/Cardinal.jpeg",
+            "soundUrl": "birds_audio/Cardinal.mp3",
+            "description": "Metallic chip, repeated whistles",
+            "call": {
+                "sound": "Cheer, cheer, cheer",
+                "type": ["Chirp/Chip", "Whistle"],
+                "pattern": ["Falling", "Whistle"]
+            },
+            "spottingLocations": ["The Ramble"]
+        },
+
+
+        "5":{
+            "id": 5,
+            "name": "Red Bellied Woodpecker",
+            "imageUrl": "birds_image/Woodpecker.jpeg",
+            "soundUrl": "birds_audio/Woodpecker.mp3",
+            "description": "Shrill rolling churr",
+            "call": {
+                "sound": "Churrr or chuck, chuck",
+                "type": ["Chirp/Chip", "Rattle", "Drum"],
+                "pattern": ["Falling", "Flat"]
+            },
+            "spottingLocations": ["Locust Grove"]
+        },
+
+
+        "6":{
+            "id": 6,
+            "name": "Tufted Titmouse",
+            "imageUrl": "birds_image/Titmouse.jpeg",
+            "soundUrl": "birds_audio/Titmouse.mp3",
+            "description": "A whistled series",
+            "call": {
+                "sound": "Peter, Peter, Peter",
+                "type": ["Buzz", "Chirp/Chip", "Whistle"],
+                "pattern": ["Falling"]
+            },
+            "spottingLocations": ["Turtle Pond"]
+        },
+
+
+     "7":   {
+            "id": 7,
+            "name": "Blue Jay",
+            "imageUrl": "birds_image/BlueJay.jpg",
+            "soundUrl": "birds_audio/BlueJay.mp3",
+            "description": "A raucous jay-jay, harsh cries, jeer",
+            "call": {
+                "sound": "Jay, Jay",
+                "type": ["Chirp/Chip", "Rattle", "Scream", "Whistle"],
+                "pattern": ["Falling", "Flat"]
+            },
+            "spottingLocations": ["Belvedere Castle’s"]
+        },
+    },
     "quizQuestions": [
         {
             "id": 1, 

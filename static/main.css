@@ -116,3 +116,57 @@
     justify-content: center;
     align-items: center;
 }
+
+.card-img-top{
+
+          height: 300px;
+
+
+}
+
+.card{
+
+          height: 400px;
+          object-fit: cover;
+
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px 20px;
+    font-size: 30px;
+
+
+
+}
+
+
+.next {
+    background-color: #04AA6D;
+     color: white;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px 20px;
+    font-size: 30px;
+     float: right;
+
+}
+.info_image_cont{
+    float: right;
+    height: 400px;
+}
+.info_image{
+    float: right;
+    height: 400px;
+     object-fit:cover;
+}
+
+.compare_image{
+    width: 300px;
+    object-fit:cover;
+}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<script>  var birds= {{birds|tojson }} </script>
+<script>  var id= {{id}} </script>
+
+<script src="{{ url_for('static', filename='Learning/info.js') }}"></script>
+
+<div class ="row">
+        <div class="col-sm-6">
+<h1>{{birds[id].name}}</h1>
+<h2> "{{ birds[id].call.sound }}"</h2>
+
+<a id = "listen_more" class="btn btn-primary">Play Sound</a>
+
+<audio id="audio_more" src= "{{ url_for('static', filename=birds[id].soundUrl) }}" ></audio>
+
+<br>{{birds[id].description}}<br>
+<div id="calls">
+
+        <b>Type</b>
+        {% for callType in birds[id].call.type %}
+        {{ callType }}
+        {% endfor %}
+        <br>
+       <b> Pattern</b>
+        {% for callPattern in birds[id].call.pattern %}
+         {{ callPattern }}
+        {% endfor %}
+        <br>
+        <b> Where to Spot</b>
+        {% for spotting in birds[id].spottingLocations %}
+        {{ spotting }}
+        {% endfor %}
+
+
+        </div>
+        </div>
+        <div class ="info_image_cont col-sm-6">
+                <img src = "{{ url_for('static', filename=birds[id].imageUrl) }}" class = "info_image"><br>
+        </div>
+</div>
+
+
+
+<div class = "row">
+<div class="col-sm-6">
+        <a id = "list_button" class="previous">&laquo Back to all birds </a>
+</div>
+<div class="col-sm-6">
+        <a id = "compare_button" class="next">Go to side by side comparisons &raquo</a>
+</div>
+</div>
+
+
+{% endblock %}
+
+

@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
+<head>
+    <script src="{{ url_for('static', filename='home.js') }}"></script>
+</head>
 <div class="row">
-    <p>Home page here</p>
+    <div class="col-md-12 center">
+        <div class="header">Welcome to the Bird Sound Explorer !</div>
+        <p>Dive into the fascinating world of birds and their unique sounds. Discover different species, listen to their calls, and test your knowledge with our quizzes. Ready to spread your wings and start exploring? Let’s go!
+        </p>
+    </div>
+    <button id="start-learning" class="btn btn-primary">Start Learning</button>
+    <button id="quiz" class="btn btn-primary">Go to Quiz</button>
+
+
 </div>
 {% endblock %}
