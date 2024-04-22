@@ -7,10 +7,14 @@ body {
     border-radius: 1.5rem;
     padding: .5rem 1rem;
     font-size: 1.5rem;
-    border-color: #000000;
-    color: #000;
-    background-color: #2cefdc;
+    border-color: #1d3b65;
+    color: #fff;
+    background-color: #1d3b65;
     margin-right: 20px;
+}
+
+.bird-btn-learn:hover {
+    color: #fff;
 }
 
 .bird-btn-quiz {
