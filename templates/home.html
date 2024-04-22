@@ -6,9 +6,14 @@
     <style>
         .bird-main-title {
             display: flex;
+            flex-direction: column;
             margin: 30px 0 10px 0;
             justify-content: center;
+            align-items: center;
             /*color: #2abbad;*/
+        }
+        .bird-sub-title {
+            color: grey;
         }
         .image-container {
             position: relative;
@@ -30,6 +35,7 @@
 <div class="row">
     <div class="bird-main-title">
         <h1>Bird Sounds</h1>
+        <p class="bird-sub-title">Dive into the fascinating world of birds and their unique sounds.</p>
     </div>
     <div class="image-container">
         <img alt="Bird Image" src="{{ url_for('static', filename='bird-cover1.png') }}">
