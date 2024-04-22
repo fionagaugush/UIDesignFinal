@@ -3,16 +3,40 @@
 {% block content %}
 <head>
     <script src="{{ url_for('static', filename='home.js') }}"></script>
+    <style>
+        .bird-main-title {
+            display: flex;
+            margin: 30px 0 10px 0;
+            justify-content: center;
+            /*color: #2abbad;*/
+        }
+        .image-container {
+            position: relative;
+            text-align: center;
+        }
+        .image-container img {
+            width: 600px;
+            height: auto;
+        }
+        .image-container .btn-container {
+            position: absolute;
+            top: 77%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
+
 <div class="row">
-    <div class="col-md-12 center">
-        <div class="header">Welcome to the Bird Sound Explorer !</div>
-        <p>Dive into the fascinating world of birds and their unique sounds. Discover different species, listen to their calls, and test your knowledge with our quizzes. Ready to spread your wings and start exploring? Let’s go!
-        </p>
+    <div class="bird-main-title">
+        <h1>Bird Sounds</h1>
     </div>
-    <button id="start-learning" class="btn btn-primary">Start Learning</button>
-    <button id="quiz" class="btn btn-primary">Go to Quiz</button>
-
-
+    <div class="image-container">
+        <img alt="Bird Image" src="{{ url_for('static', filename='bird-cover1.png') }}">
+        <div class="btn-container">
+            <button class="btn bird-btn-learn" id="start-learning">Start learning</button>
+            <button class="btn bird-btn-quiz" id="quiz">Take a quiz</button>
+        </div>
+    </div>
 </div>
 {% endblock %}
