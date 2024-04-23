@@ -1,8 +1,8 @@
 $(document).ready(function() {
-
+  var play = document.getElementById("listen_more");
+var audio = document.getElementById("audio_more");
  $("#listen_more").click(function() {
-             var play = document.getElementById("listen_more");
-              var audio = document.getElementById("audio_more");
+
               console.log("hi")
               if (audio.paused) {
                     audio.play();
@@ -13,6 +13,16 @@ $(document).ready(function() {
                 }
 
     });
+
+audio.addEventListener("ended", function(){
+       audio.currentTime = 0;
+       play.textContent = 'Play Sound';
+
+  });
+
+
+
+
 
          $("#list_button").click(function(){
               var newURL =  '/learn';
@@ -26,5 +36,17 @@ $(document).ready(function() {
                   })
 
     })
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -31,8 +31,7 @@ def update_user_step():
 def search():
     query = request.form.get('query')
     birds_data = data['birds']
-    results = [bird for bird in birds_data.values() if bird['name'].lower().startswith(query.lower())]
-
+    results = [bird for bird in birds_data.values() if (bird['name'].lower().startswith(query.lower()) or bird['name'].lower().find(query.lower()) != -1)]
     return render_template('search_results.html', query=query, results=results)
 
 @app.route('/learn')

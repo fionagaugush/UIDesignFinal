@@ -1,10 +1,14 @@
 $(document).ready(function() {
+
     for (var key in birds) {
         var bird = birds[key];
+
+
         (function(bird) {
+        var play = document.getElementById("listen" + bird.id);
+         var audio = document.getElementById("audio" + bird.id);
             $("#listen" + bird.id).click(function() {
-                var play = document.getElementById("listen" + bird.id);
-                var audio = document.getElementById("audio" + bird.id);
+
                 if (audio.paused) {
                     audio.play();
                     play.textContent = 'Pause Sound';
@@ -13,6 +17,16 @@ $(document).ready(function() {
                     play.textContent = 'Play Sound';
                 }
             });
+
+
+
+
+        audio.addEventListener("ended", function(){
+               audio.currentTime = 0;
+               play.textContent = 'Play Sound';
+
+          });
+
         })(bird);
     }
 
@@ -39,5 +53,7 @@ $(document).ready(function() {
        window.location.href = newURL;
 
           })
+
+
 
 });
