@@ -1,9 +1,8 @@
 body {
    background-color: #fcf8ef;
    /*background-color: #ebfaff;*/
-
-   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-
+   /* TODO: confirm sans-serif font */
+   /*font-family: Futura, "Trebuchet MS", Arial, sans-serif;*/
 }
 
 .bird-btn-learn {
