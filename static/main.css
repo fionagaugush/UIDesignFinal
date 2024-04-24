@@ -69,17 +69,22 @@ body {
     color:grey;
 }
 
+#choices-container {
+    background-color: #cfe2f3;
+    padding: 30px 10px;
+    border-radius: 50px;
+}
+
 .choice-button {
     margin-top: 10px;
     padding: 10px 20px;
     font-size: 18px;
     background-color: #DCDCDC;
     border: 1px solid #000000;
-    border-radius: 5px;
+    border-radius: 75px;
     cursor: pointer;
     width: 300px;
     height: 75px;
-    
 }
 
 .choice-button:hover {
