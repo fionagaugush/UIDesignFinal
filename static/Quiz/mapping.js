@@ -63,7 +63,7 @@ $(document).ready(function() {
             //Update User data
             let user_data = {        
                 "step": 2,
-                "currentQuizQuestion": question_number,
+                "currentQuizQuestion": question_number + 1,
                 "quizScore": parseInt($("#score-value").text()) + awarded_points
             };
             
@@ -192,6 +192,7 @@ function save_user_data(user_data) {
         data: JSON.stringify(user_data),
         success: function(result) {
             console.log(result);
+            console.log(user_data);
             $("#score-value").text(user_data["quizScore"]);
         },
         error: function(request, status, error) {

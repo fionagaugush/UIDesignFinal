@@ -53,8 +53,8 @@ def compare(first=None,second=None):
     return render_template("Learning/compare.html", first=first, second = second, birds= birds_data)
 @app.route('/quiz')
 def quiz():
-    quiz_data = data['quizQuestions']
-    return render_template('Quiz/quiz.html', quiz=quiz_data)
+    cur_question = data['user']['currentQuizQuestion']
+    return render_template('Quiz/quiz.html', current_question=cur_question)
 
 @app.route('/quiz/<int:question_number>')
 def quiz_question(question_number):

@@ -3,13 +3,16 @@
 {% block content %}
 <head>
     <script src="{{ url_for('static', filename='Quiz/quiz.js') }}"></script>
+    <script>
+         let current_question = {{ current_question }};
+    </script>
 </head>
 <div class="row">
     <div class="col-md-12 center">
-        <div class="header">Welcome to the quiz!</div>
+        <div class="header">Quiz!</div>
         <p>In order to pass you must get at least 80% of the questions correct. </p>
+        <button id="start-quiz" class="btn btn-primary">Start Quiz</button>
+        <button id="continue-quiz" class="btn btn-primary">Continue Quiz</button>
     </div>
-    <button id="start-quiz" class="btn btn-primary">Start Quiz</button>
-
 </div>
 {% endblock %}
