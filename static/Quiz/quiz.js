@@ -2,15 +2,15 @@
 $(document).ready(function() {
 
     if (current_question <= 1) {
-        $("#continue-quiz").hide();
+        $("#continue-quiz-button").hide();
     }
 
-    $("#start-quiz").click(function() {
+    $("#start-quiz-button").click(function() {
         window.location.href = "/quiz/1";
     });
 
     // Option to continue quiz if user already started
-    $("#continue-quiz").click(function() {
+    $("#continue-quiz-button").click(function() {
         window.location.href = "/quiz/" + current_question;
     });
 });
