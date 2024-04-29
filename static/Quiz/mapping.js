@@ -1,7 +1,7 @@
 // Start quiz when start button is clicked
 $(document).ready(function() {
-    display_audio_choices();
-    display_drop_zones();
+
+    display_drag_drop_table();
 
     // Hide next question button until a choice is made
     $("#next-question-button").hide();
@@ -42,8 +42,9 @@ $(document).ready(function() {
             }
 
             else {
-                let droppedItem_id = parseInt(droppable.data('droppedItem_id'));
-                let correct_id = parseInt(droppable.attr("id"));
+                // Get the id of the dropped item (after the 'draggable' prefix)
+                let droppedItem_id = parseInt(droppable.data('droppedItem_id').substring(9));
+                let correct_id =  question['correctAnswer'][parseInt(droppable.attr('id').substring(9))]
 
                 
                 // Incrrect Answer
@@ -69,7 +70,7 @@ $(document).ready(function() {
             
             save_user_data(user_data);
 
-            console.log(mistakes);
+            console.log("Mistakes Array: " , mistakes);
             give_feedback(mistakes);
 
             // Show next question or view results button
@@ -83,18 +84,25 @@ $(document).ready(function() {
 
 });
 
-function display_audio_choices() {
-    $("#audio-choices").empty();
+
+function display_drag_drop_table() {
     let sounds = question["sounds"];
 
-    for (let i = 0; i < sounds.length; i++) {
+    let bird_order = question["correctAnswer"];
+
+    // Arrange drop boxes in correct order
+    for (let i = 0; i < bird_order.length; i++) {
+        let row = $("<div></div>");
+        row.addClass("drag-drop-row");
+
+
 
         let audio_box = $("<div></div>");
 
         audio_box.text("Audio " + (i + 1));
         audio_box.addClass("mapping-box");
         audio_box.addClass("correct");
-        audio_box.attr("id", i);
+        audio_box.attr("id", "draggable"+i);
         audio_box.draggable({
             });
 
@@ -105,29 +113,13 @@ function display_audio_choices() {
         audio.attr("type", "audio/mpeg");
         audio_box.append(audio);
         
-    
-        $("#audio-choices").append(audio_box);
-        $("#audio-choices").append("<br>");
-    }
-}
-
-function display_drop_zones() {
-    $("bird-choices").empty();
-
-
-    let bird_order = question["correctAnswer"];
-
-    // Arrange drop boxes in correct order
-    for (let i = 0; i < bird_order.length; i++) {
-        let row = $("<div></div>");
-        row.addClass("drop-row");
-
+        row.append(audio_box);
 
         let drop_zone = $("<div></div>");
         drop_zone.text("Place correct audio here");
         drop_zone.addClass("mapping-box");
         drop_zone.addClass("grey");
-        drop_zone.attr("id", bird_order[i]);
+        drop_zone.attr("id", "droppable"+i);
         drop_zone.droppable({
             drop: function(event, ui) {
                 // Lock the draggable in the droppable
@@ -156,28 +148,20 @@ function display_drop_zones() {
         let bird_container = $("<div></div>");
         bird_container.addClass("bird-container");
 
-        let baseURL = "/static/"
+
         let bird_image = $("<img></img>");
-
         bird_image.attr("src", baseURL + question["images"][bird_order[i]]);
-
-
         $(bird_container).append(bird_image);
 
         let caption = $("<div></div>");
         caption.addClass("image-caption");
-
         caption.text(question["birds"][question["correctAnswer"][i]])
         //caption.text(question["correctOrder"][i]);
-
         $(bird_container).append(caption);
-
-
 
         $(row).append(bird_container);
 
-        $("#bird-choices").append(row);
-        $("#bird-choices").append("<br>");
+        $("#drag-drop-table").append(row);
     }
 }
 
@@ -227,8 +211,11 @@ function give_feedback(mistakes) {
             $("#feedback").append(mistake_text);
 
             // Highlight incorrect choices
-            $(".ui-draggable#"+droppedItem_id).removeClass("correct");
-            $(".ui-draggable#"+droppedItem_id).addClass("incorrect");
+            $(".ui-draggable#draggable"+ droppedItem_id).removeClass("correct");
+            $(".ui-draggable#draggable"+ droppedItem_id).addClass("incorrect");
+
+            console.log($(".ui-draggable#"+ droppedItem_id))
+            console.log(".ui-draggable#"+droppedItem_id)
         
         });
 
