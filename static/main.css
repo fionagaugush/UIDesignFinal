@@ -42,6 +42,8 @@ body {
     cursor: pointer;
     width: 150px;
     height: 75px;
+
+     border-radius: 50px;
 }
 
 .center {
@@ -199,6 +201,7 @@ body {
 .card-img-top{
 
           height: 300px;
+          border-radius: 50px;
 
 
 }
@@ -207,6 +210,11 @@ body {
 
           height: 400px;
           object-fit: cover;
+          background-color: #cfe2f3;
+          padding: 10px 10px;
+          border-radius: 50px;
+          margin-bottom: 20px;
+          width: 100%;
 
 }
 
@@ -218,6 +226,8 @@ body {
     padding: 10px 20px;
     margin: 20px 20px;
     font-size: 30px;
+     border-radius: 50px;
+     margin-top: 50px;
 
 
 
@@ -225,7 +235,7 @@ body {
 
 
 .next {
-    background-color: #04AA6D;
+     background-color: #0879bf;
      color: white;
     text-decoration: none;
     display: inline-block;
@@ -233,6 +243,9 @@ body {
     margin: 20px 20px;
     font-size: 30px;
      float: right;
+     margin-top: 50px;
+
+      border-radius: 50px;
 
 }
 .info_image_cont{
@@ -246,6 +259,89 @@ body {
 }
 
 .compare_image{
-    width: 300px;
+    margin: 10px;
+    width: 60%;
     object-fit:cover;
+    border-radius: 50px;
+}
+
+.bird_card_compare{
+    background-color: #cfe2f3;
+
+    border-radius: 50px;
+    height: 500px;
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+
+}
+
+
+#bird1{
+    background-color: #cfe2f3;
+    padding: 10px 10px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    width: 85%;
+    text-align: center;
+    margin-left:50px;
+    font-size:30px;
+    font-weight:bold;
+
+
+}
+
+#bird2{
+    background-color: #cfe2f3;
+    padding: 10px 10px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    width: 85%;
+    text-align: center;
+    margin-left:50px;
+    font-size:30px;
+    font-weight:bold;
+
+
+
+}
+
+#listen_second{
+ width: 60%;
+ border-radius: 50px;
+ margin-top:20px;
+  margin-bottom:20px;
+    background-color: #0879bf;
+     font-size:20px;
+
+}
+
+
+#listen_first{
+ width: 60%;
+ border-radius: 50px;
+ margin-top:20px;
+ margin-bottom:20px;
+ background-color: #0879bf;
+ font-size:20px;
+
+}
+.call_sound_compare{
+font-size:25px;
+color: grey;
+font-style: italic;
+
+}
+.buttons{
+background-color: #0879bf;
+ border-radius: 50px;
+
+}
+#listen_more{
+width: 50%;
+}
+.location{
+margin-left: 50px;
+font-size: 20px;
+text-align:center;
 }

@@ -9,36 +9,53 @@
 <div class ="row">
         <div class="col-sm-6">
 <h1>{{birds[id].name}}</h1>
-<h2> "{{ birds[id].call.sound }}"</h2>
 
-<a id = "listen_more" class="btn btn-primary">Play Sound</a>
+<div class = "call_sound_compare"> "{{ birds[id].call.sound }}"</div> <br>
+
+<div id = "listen_more" class="btn btn-primary buttons">Play Sound</div>
 
 <audio id="audio_more" src= "{{ url_for('static', filename=birds[id].soundUrl) }}" ></audio>
 
-<br>{{birds[id].description}}<br>
+<br><b>{{birds[id].description}}</b><br>
 <div id="calls">
 
-        <b>Type</b>
+        <span class = "grey-text">Type</span>
         {% for callType in birds[id].call.type %}
         {{ callType }}
         {% endfor %}
         <br>
-       <b> Pattern</b>
+        <span class = "grey-text"> Pattern</span>
         {% for callPattern in birds[id].call.pattern %}
          {{ callPattern }}
         {% endfor %}
-        <br>
-        <b> Where to Spot</b>
-        {% for spotting in birds[id].spottingLocations %}
-        {{ spotting }}
-        {% endfor %}
+
 
 
         </div>
         </div>
         <div class ="info_image_cont col-sm-6">
                 <img src = "{{ url_for('static', filename=birds[id].imageUrl) }}" class = "info_image"><br>
+            <br>
+
+
         </div>
+    <div class = "row">
+        <div class = "col-sm-6"> </div>
+
+        <div class = "col-sm-6">
+            <div class = "location">
+                <span class = "grey-text "> Found in </span>
+                {% for spotting in birds[id].spottingLocations %}
+                {{ spotting }}
+                <br>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+
+
 </div>
 
 

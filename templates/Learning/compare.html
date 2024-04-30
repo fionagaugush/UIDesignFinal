@@ -16,6 +16,8 @@
 
 <div class="row">
     <div class="col-sm-6">
+
+
         <select name="bird" id="bird1">
             {% for key in birds.keys() %}
             {% set bird = birds[key] %}
@@ -27,24 +29,24 @@
             {% endif %}
             {% endfor %}
         </select>
-
-      <br>  {{ birds[first].call.sound }} <br>
+        <div class = "bird_card_compare">
+      <br>  <span class = "call_sound_compare"> "{{ birds[first].call.sound }}"</span> <br>
         <img src = "{{ url_for('static', filename=birds[first].imageUrl) }}" class = "compare_image"><br>
         <a id = "listen_first" class="btn btn-primary">Play Sound</a> <br>
         <audio id="audio_first" src= "{{ url_for('static', filename=birds[first].soundUrl) }}" ></audio>
 
-
-        {{birds[first].description}}<br>
-        <b>Type</b>
+            <b>{{birds[first].description}}</b><br>
+            <span class="grey-text">Type</span>
         {% for callType in birds[first].call.type %}
         {{ callType }}
         {% endfor %}
         <br>
-        <b>Pattern</b>
+            <span class="grey-text"> Pattern</span>
         {% for callPattern in birds[first].call.pattern %}
         {{ callPattern }}
 
         {% endfor %}
+            </div>
 
 
 
@@ -64,24 +66,25 @@
         </select>
 
 
-
-       <br> {{ birds[second].call.sound }} <br>
+        <div class = "bird_card_compare">
+        <br> <span class = "call_sound_compare">"{{ birds[second].call.sound }}"</span> <br>
         <img src = "{{ url_for('static', filename=birds[second].imageUrl) }}" class = "compare_image"><br>
         <a id = "listen_second" class="btn btn-primary">Play Sound</a> <br>
         <audio id="audio_second" src= "{{ url_for('static', filename=birds[second].soundUrl) }}" ></audio>
 
 
-        {{birds[second].description}}<br>
-        <b>Type</b>
+            <b>{{birds[second].description}}</b><br>
+       <span class="grey-text"> Type </span>
         {% for callType in birds[second].call.type %}
         {{ callType }}
         {% endfor %}
         <br>
-        <b>Pattern</b>
+            <span class="grey-text"> Pattern </span>
         {% for callPattern in birds[second].call.pattern %}
         {{ callPattern }}
 
         {% endfor %}
+            </div>
 
     </div>
     <div class="col-sm-6">

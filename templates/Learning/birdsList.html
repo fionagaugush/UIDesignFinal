@@ -14,12 +14,14 @@
                 >
             <div class="card-body">
                 <h5 class="card-title">{{ bird.name }}</h5>
-                <p class="card-text">{{ bird.description }}</p>
-                <a id = "listen{{bird.id}}" class="btn btn-primary">Play Sound</a>
+
+                <p class="grey-text ">{{ bird.description }}</p>
+
+                <a id = "listen{{bird.id}}" class="btn btn-primary buttons">Play Sound</a>
 
                 <audio id="audio{{bird.id}}" src="{{ url_for('static', filename=bird.soundUrl) }}"></audio>
 
-                <a id = "more{{bird.id}}" class="btn btn-primary">Learn More</a>
+                <a id = "more{{bird.id}}" class="btn btn-primary buttons">Learn More</a>
             </div>
         </div>
     </div>
