@@ -42,9 +42,31 @@ body {
     cursor: pointer;
     width: 150px;
     height: 75px;
-
-     border-radius: 50px;
+    border-radius: 50px;
 }
+
+#next-question-button:hover {
+    background-color: #5C7D9A;
+}
+
+#submit-button {
+    background-color: #3d85c6;
+    margin-top: 20px;
+    padding: 20px 20px;
+    font-size: 18px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 150px;
+    height: 75px;
+    border-radius: 50px;
+    
+}
+
+#submit-button:hover {
+    background-color: #2b65a3;
+}
+
 
 .center {
     text-align: center;
@@ -162,28 +184,47 @@ body {
     color: #AFE1AF;
 }
 
-.mapping-box {
+.mapping-box-drag {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 18px;;
     border: 1px solid #000000;
-    border-radius: 5px;
+    border-radius: 75px;
     width: 300px;
     height: 50px;
     margin-right:50px;
+    background-color: #DCDCDC;
+}
+
+.mapping-box-drag:hover {
+    background-color: #A9A9A9;
+    cursor: pointer;
+}
+
+.mapping-box-drop {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: 1px dashed #000000;
+    border-radius: 75px;
+    width: 300px;
+    height: 50px;
+    margin-right: 50px;
+    background-color: white;
 }
 
 
 .bird-container {
     justify-content: center;
     align-items: center;
-    width: 100px;
+    width: 120px;
     display: inline-block;
     margin-left: 10px;
+    border: 10px solid #DCDCDC;
 }
 
 .bird-container img {
-    max-width: 100px;
+    max-width: 100%;
 }
 
 .image-caption {
@@ -196,6 +237,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .card-img-top{

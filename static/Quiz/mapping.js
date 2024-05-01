@@ -100,8 +100,7 @@ function display_drag_drop_table() {
         let audio_box = $("<div></div>");
 
         audio_box.text("Audio " + (i + 1));
-        audio_box.addClass("mapping-box");
-        audio_box.addClass("correct");
+        audio_box.addClass("mapping-box-drag");
         audio_box.attr("id", "draggable"+i);
         audio_box.draggable({
             });
@@ -117,8 +116,7 @@ function display_drag_drop_table() {
 
         let drop_zone = $("<div></div>");
         drop_zone.text("Place correct audio here");
-        drop_zone.addClass("mapping-box");
-        drop_zone.addClass("grey");
+        drop_zone.addClass("mapping-box-drop");
         drop_zone.attr("id", "droppable"+i);
         drop_zone.droppable({
             drop: function(event, ui) {
