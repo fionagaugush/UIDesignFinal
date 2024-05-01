@@ -44,7 +44,7 @@ function display_choices() {
 
         let choice_button = $("<button></button>");
         choice_button.text(choices[i]);
-        choice_button.addClass("choice-button");
+        choice_button.addClass("btn choice-button");
         choice_button.attr("id", i);
         choice_button.click(handle_choice_click);
 
@@ -117,14 +117,14 @@ function save_user_data(user_data) {
 
 function give_feedback(choice, correct_answer, is_correct) {
     if (is_correct == 1){
-        $("#feedback").html("<h3>Correct! Good job!<h3>");
+        $("#feedback").html("<h3 class='feedback-success'>Correct! Good job!<h3>");
         $("#feedback").addClass("correct-text");
     }
 
     else {
-        let header = $("<h3>Incorrect</h3>").addClass("incorrect-text");
+        let header = $("<h3 class='feedback-fail'>Incorrect</h3>").addClass("incorrect-text");
         let user_choice = $("<p> <span class='grey-text'> You selected: </span> " + choice + "</p>");
-        let correct_choice = $("<p> <span class='grey-text'> Correct answer: </span> " + correct_answer + "</p>");
+        let correct_choice = $("<p class='feedback-fail-2'> <span class='grey-text'> Correct answer: </span> " + correct_answer + "</p>");
         $("#feedback").append(header);
         $("#feedback").append(user_choice);
         $("#feedback").append(correct_choice);

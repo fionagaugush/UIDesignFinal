@@ -10,13 +10,25 @@
         let total_num_questions = {{ total_num_questions }};
     </script>
 </head>
-<div class="row">
+<div class="row quiz-card">
+    <div class="question-quiz-progress">
+        <div class="d-flex justify-content-between align-items-center">
+            {% for i in range(total_num_questions) %}
+            {% if not loop.first %}
+            <div class="step-line {{ 'done' if i <= question_number-1 }}"></div>
+            {% endif %}
+            <div class="step {{ 'done' if i < question_number }}">
+                {{ i+1 }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
     <div class="col-md-12 question">
-        <div class="question-text"> <span class="question-number">Question {{question_number}}</span> {{question.questionText}}</h1>
+        <div class="question-text">
+            {{question.questionText}}</h1>
         </div>
         <div id="question-audio">
         </div>
-
         <div class="row">
             <div class="col-md-3">
             </div>
@@ -25,16 +37,15 @@
                     <div id="choices"></div>
                 </div>
             </div>
-            <div class="col-md-3">  
-                <div id="score">
+            <div class="col-md-3">
+                <h3 id="score">
                     Score: <span id="score-value"> {{score}}</span>
-                </div>  
+                </h3>
                 <div id="feedback">
                 </div>
             </div>
-        </div>  
-
-        <div id="next-question-button" class="btn btn-primary"></div> 
+        </div>
+        <div id="next-question-button" class="btn btn-primary btn-primary-color"></div>
     </div>
 </div>
 

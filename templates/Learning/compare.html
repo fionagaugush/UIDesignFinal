@@ -18,7 +18,7 @@
     <div class="col-sm-6">
 
 
-        <select name="bird" id="bird1">
+        <select class="form-select form-select-lg mb-3" name="bird" id="bird1">
             {% for key in birds.keys() %}
             {% set bird = birds[key] %}
 
@@ -32,7 +32,7 @@
         <div class = "bird_card_compare">
       <br>  <span class = "call_sound_compare"> "{{ birds[first].call.sound }}"</span> <br>
         <img src = "{{ url_for('static', filename=birds[first].imageUrl) }}" class = "compare_image"><br>
-        <a id = "listen_first" class="btn btn-primary">Play Sound</a> <br>
+        <a id = "listen_first" class="btn btn-secondary-color">Play Sound</a> <br>
         <audio id="audio_first" src= "{{ url_for('static', filename=birds[first].soundUrl) }}" ></audio>
 
             <b>{{birds[first].description}}</b><br>
@@ -54,7 +54,7 @@
     </div>
     <div class="col-sm-6">
 
-        <select name="bird" id="bird2">
+        <select class="form-select form-select-lg mb-3" name="bird" id="bird2">
             {% for key in birds.keys() %}
             {% set bird = birds[key] %}
             {% if bird.id == second %}
@@ -69,7 +69,7 @@
         <div class = "bird_card_compare">
         <br> <span class = "call_sound_compare">"{{ birds[second].call.sound }}"</span> <br>
         <img src = "{{ url_for('static', filename=birds[second].imageUrl) }}" class = "compare_image"><br>
-        <a id = "listen_second" class="btn btn-primary">Play Sound</a> <br>
+        <a id = "listen_second" class="btn btn-secondary-color">Play Sound</a> <br>
         <audio id="audio_second" src= "{{ url_for('static', filename=birds[second].soundUrl) }}" ></audio>
 
 

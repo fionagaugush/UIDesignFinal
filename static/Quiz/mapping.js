@@ -189,13 +189,13 @@ function give_feedback(mistakes) {
     $("#feedback").empty();
     
     if (mistakes.length == 0){
-        $("#feedback").html("<h3>Correct! Good job!<h3>");
+        $("#feedback").html("<h3 class='feedback-success'>Correct! Good job!<h3>");
         $("#feedback").addClass("correct-text");
     }
 
     else {
 
-        let header = $("<h3>Incorrect</h3>").addClass("incorrect-text");
+        let header = $("<h3>Incorrect</h3>").addClass("incorrect-text feedback-fail");
         $("#feedback").append(header);
 
         mistakes.forEach(function(mistake_group) {
@@ -205,7 +205,7 @@ function give_feedback(mistakes) {
             let user_choice = question["birds"][droppedItem_id];
             let correct_choice = question["birds"][correct_id];
 
-            let mistake_text = $("<p> <span class='grey-text'> You confused </span> " + user_choice + "<span class='grey-text'> with </span> " + correct_choice + "</p>");
+            let mistake_text = $("<p class='feedback-fail-2'> <span class='grey-text'> You confused </span> " + user_choice + "<span class='grey-text'> with </span> " + correct_choice + "</p>");
             $("#feedback").append(mistake_text);
 
             // Highlight incorrect choices
