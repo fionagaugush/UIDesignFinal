@@ -30,6 +30,7 @@ $(document).ready(function() {
         // Keep track of mistakes
         let mistakes = [];
         let canSubmit = true;
+        let correct = []
 
         // Loop over all droppables
         $(".ui-droppable").each(function() {
@@ -50,8 +51,10 @@ $(document).ready(function() {
                 // Incrrect Answer
                 if (droppedItem_id != correct_id) {
                     console.log("User selected: " + droppedItem_id, "Correct answer: " + correct_id);
-                    mistakes.push([droppedItem_id, correct_id]);
-                    
+                    mistakes.push([droppedItem_id, correct_id]);       
+                }
+                else {
+                    correct.push(droppedItem_id);
                 }
             }    
         });
@@ -71,7 +74,7 @@ $(document).ready(function() {
             save_user_data(user_data);
 
             console.log("Mistakes Array: " , mistakes);
-            give_feedback(mistakes);
+            give_feedback(mistakes, correct);
 
             // Show next question or view results button
             $("#next-question-button").show();
@@ -101,6 +104,7 @@ function display_drag_drop_table() {
 
         audio_box.text("Audio " + (i + 1));
         audio_box.addClass("mapping-box-drag");
+        audio_box.addClass("mapping-box-default-color")
         audio_box.attr("id", "draggable"+i);
         audio_box.draggable({
             });
@@ -185,7 +189,7 @@ function save_user_data(user_data) {
     });
 }
 
-function give_feedback(mistakes) {
+function give_feedback(mistakes, correct) {
     $("#feedback").empty();
     
     if (mistakes.length == 0){
@@ -205,11 +209,27 @@ function give_feedback(mistakes) {
             let user_choice = question["birds"][droppedItem_id];
             let correct_choice = question["birds"][correct_id];
 
-            let mistake_text = $("<p class='feedback-fail-2'> <span class='grey-text'> You confused </span> " + user_choice + "<span class='grey-text'> with </span> " + correct_choice + "</p>");
-            $("#feedback").append(mistake_text);
+            user_choice_bird_path = "/learn/" + find_bird_id(user_choice);
+            correct_choice_bird_path = "/learn/" + find_bird_id(correct_choice);
+
+            user_choice_link = "<a href='" + user_choice_bird_path + "'>" + user_choice + "</a>";
+            correct_choice_link = "<a href='" + correct_choice_bird_path + "'>" + correct_choice + "</a>";
+
+            
+            feedback_row = $("<p class='compare-feedback'></p>");
+            feedback_row.addClass("feedback-fail-2");
+            let mistake_text = $("<span class='grey-text'> You confused </span> " + user_choice_link + "<span class='grey-text'> with </span> " + correct_choice_link);
+            feedback_row.append(mistake_text);
+
+            feedback_row.click(function() {
+                window.location.href = "/compare/" + find_bird_id(user_choice) + "/" + find_bird_id(correct_choice);
+            });
+        
+            $("#feedback").append(feedback_row);
+
 
             // Highlight incorrect choices
-            $(".ui-draggable#draggable"+ droppedItem_id).removeClass("correct");
+            $(".ui-draggable#draggable"+ droppedItem_id).removeClass("mapping-box-default-color");
             $(".ui-draggable#draggable"+ droppedItem_id).addClass("incorrect");
 
             console.log($(".ui-draggable#"+ droppedItem_id))
@@ -217,7 +237,28 @@ function give_feedback(mistakes) {
         
         });
 
+        correct.forEach(function(correct_id) {
+            $(".ui-draggable#draggable"+ correct_id).removeClass("mapping-box-default-color");
+            $(".ui-draggable#draggable"+ correct_id).addClass("correct");
+        });
+
+    }   
+}
+
+function find_bird_id(bird_name) {
+    let id = -1;
+
+    for (var bird_id in birds_list) {
+        let bird = birds_list[bird_id];
+        if (bird["name"] == bird_name) {
+            id = bird["id"];
+
+            console.log("Bird id for " + bird_name + ": ", id);
+            return id
+        }
     }
+
+    return id;
 }
 
 

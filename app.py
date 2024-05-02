@@ -66,10 +66,10 @@ def quiz_question(question_number):
     question = quiz_data[question_number - 1]
 
     if question['type'] == 'QUIZ_MULTIPLE_CHOICE':
-        return render_template('Quiz/multiple_choice.html', question=question, question_number=question_number, score=data['user']['quizScore'], total_num_questions=len(quiz_data))
+        return render_template('Quiz/multiple_choice.html', question=question, question_number=question_number, score=data['user']['quizScore'], total_num_questions=len(quiz_data), birds_list=data['birds'])
     
 
-    return render_template('Quiz/mapping.html', question=question, question_number=question_number, score = data['user']['quizScore'], total_num_questions=len(quiz_data))
+    return render_template('Quiz/mapping.html', question=question, question_number=question_number, score = data['user']['quizScore'], total_num_questions=len(quiz_data), birds_list=data['birds'])
 
 @app.route('/quiz_results')
 def quiz_results():

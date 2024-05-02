@@ -73,6 +73,10 @@ body {
     padding-bottom: 2rem;
 }
 
+.compare-feedback:hover {
+    background-color: #DCDCDC;
+}
+
 #next-question-button:hover {
     background-color: #5C7D9A;
 }
@@ -176,6 +180,10 @@ body {
     color: #AFE1AF;
 }
 
+.mapping-box-default-color {
+    background-color: #DCDCDC;
+}
+
 .mapping-box-drag {
     margin-top: 20px;
     padding: 10px 20px;
@@ -185,7 +193,6 @@ body {
     width: 300px;
     height: 50px;
     margin-right: 50px;
-    background-color: #DCDCDC;
 }
 
 .mapping-box-drag:hover {

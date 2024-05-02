@@ -123,12 +123,35 @@ function give_feedback(choice, correct_answer, is_correct) {
 
     else {
         let header = $("<h3 class='feedback-fail'>Incorrect</h3>").addClass("incorrect-text");
-        let user_choice = $("<p> <span class='grey-text'> You selected: </span> " + choice + "</p>");
-        let correct_choice = $("<p class='feedback-fail-2'> <span class='grey-text'> Correct answer: </span> " + correct_answer + "</p>");
+
+        user_choice_bird_path = find_bird_path(choice, birds_list);
+        correct_choice_bird_path = find_bird_path(correct_answer, birds_list);
+
+        user_choice_link = "<a href='" + user_choice_bird_path + "'>" + choice + "</a>";
+        correct_choice_link = "<a href='" + correct_choice_bird_path + "'>" + correct_answer + "</a>";
+
+        let user_choice = $("<p> <span class='grey-text'> You selected: </span> " + user_choice_link + "</p>");
+        let correct_choice = $("<p class='feedback-fail-2'> <span class='grey-text'> Correct answer: </span> " + correct_choice_link + "</p>");
         $("#feedback").append(header);
         $("#feedback").append(user_choice);
         $("#feedback").append(correct_choice);
     }
+}
+
+function find_bird_path(bird_name, birds) {
+    let path = "";
+
+    for (var bird_id in birds) {
+        let bird = birds[bird_id];
+        if (bird["name"] == bird_name) {
+            path = "/learn/" + bird["id"];
+
+            console.log("Bird Path for " + bird_name + ": ", path);
+            return path;
+        }
+    }
+
+    return path;
 }
 
 
