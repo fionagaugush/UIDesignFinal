@@ -126,9 +126,15 @@ function give_feedback(choice, correct_answer, is_correct) {
 
         user_choice_bird_path = find_bird_path(choice, birds_list);
         correct_choice_bird_path = find_bird_path(correct_answer, birds_list);
-
+        //if the correct answer is not a bird (true/false), the path will be "", do not make it linked
+        if (user_choice_bird_path != "" & correct_choice_bird_path != ""){
         user_choice_link = "<a href='" + user_choice_bird_path + "'>" + choice + "</a>";
         correct_choice_link = "<a href='" + correct_choice_bird_path + "'>" + correct_answer + "</a>";
+        }
+        else{
+          user_choice_link = "<span>" + choice + "</span>";
+          correct_choice_link = "<span>" + correct_answer + "</span>"
+        }
 
         let user_choice = $("<p> <span class='grey-text'> You selected: </span> " + user_choice_link + "</p>");
         let correct_choice = $("<p class='feedback-fail-2'> <span class='grey-text'> Correct answer: </span> " + correct_choice_link + "</p>");
@@ -149,6 +155,7 @@ function find_bird_path(bird_name, birds) {
             console.log("Bird Path for " + bird_name + ": ", path);
             return path;
         }
+
     }
 
     return path;

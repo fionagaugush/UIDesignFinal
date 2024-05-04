@@ -3,7 +3,6 @@ $(document).ready(function() {
 var audio = document.getElementById("audio_more");
  $("#listen_more").click(function() {
 
-              console.log("hi")
               if (audio.paused) {
                     audio.play();
                     play.textContent = 'Pause Sound';
@@ -25,8 +24,7 @@ audio.addEventListener("ended", function(){
 
 
          $("#list_button").click(function(){
-              var newURL =  '/learn';
-               window.location.href = newURL;
+              window.history.back();
 
              })
               $("#compare_button").click(function(){

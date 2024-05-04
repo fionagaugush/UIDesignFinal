@@ -188,7 +188,7 @@ data = {
                 "House Sparrow + Mourning Dove",
                 "None of the Above"
             ],
-            "correctAnswer": 1
+            "correctAnswer": 0
         },
         # {
         #     "id": 6,
