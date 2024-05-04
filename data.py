@@ -12,7 +12,7 @@ data = {
             "name": "Mourning Dove",
             "imageUrl": "birds_image/bird_1.png",
             "soundUrl": "birds_audio/bird_1.mp3",
-            "description": "Low Mournful coo",
+            "description": "Low mournful coo",
             "call": {
                 "sound": "coo-ah, coo, coo",
                 "type": ["Hoot"],
@@ -26,7 +26,7 @@ data = {
             "name": "Great Blue Heron",
             "imageUrl": "birds_image/BlueHeron.jpeg",
             "soundUrl": "birds_audio/BlueHeron.mp3",
-            "description": "Harsh Squawk",
+            "description": "Harsh squawk",
             "call": {
                 "sound": "roh, roh, roh",
                 "type": ["Croak/Quack", "Scream"],
