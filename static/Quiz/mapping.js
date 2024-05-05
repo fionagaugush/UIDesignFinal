@@ -1,6 +1,13 @@
 // Start quiz when start button is clicked
 $(document).ready(function() {
 
+
+
+
+ $("#home_nav").removeClass("active")
+ $("#quiz_nav").addClass("active")
+ $("#learn_nav").removeClass("active")
+
     display_drag_drop_table();
 
     // Hide next question button until a choice is made

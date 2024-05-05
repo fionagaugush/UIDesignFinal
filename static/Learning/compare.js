@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+
+
+ $("#home_nav").removeClass("active")
+  $("#quiz_nav").removeClass("active")
+   $("#learn_nav").addClass("active")
+
 var bird1 = document.getElementById('bird1');
 
 var bird2 = document.getElementById('bird2');
@@ -81,8 +87,7 @@ $("#listen_second").click(function() {
 
 
  $("#list_button").click(function(){
-              var newURL =  '/learn';
-               window.location.href = newURL;
+                window.history.back();
 
              })
               $("#quiz_button").click(function(){

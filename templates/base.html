@@ -12,7 +12,6 @@
     <link href="{{url_for('static', filename='main.css')}}" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Preahvihear' rel='stylesheet'>
 
 
 
@@ -31,17 +30,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a aria-current="page" class="nav-link active" href="/">Home</a>
+                    <a id="home_nav" aria-current="page" class="nav-link active" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/learn">Learn</a>
+                    <a  id = "learn_nav" class="nav-link" href="/learn">Learn</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/quiz">Quiz</a>
+                <li class="nav-item" >
+                    <a id = "quiz_nav" class="nav-link" href="/quiz">Quiz</a>
                 </li>
             </ul>
             <form action="/search" class="d-flex" method="POST">
-                <input aria-label="Search" class="form-control me-2" name="query" placeholder="Search" type="search">
+                <input aria-label="Search" class="form-control me-2" name="query" placeholder="Search birds" type="search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
 

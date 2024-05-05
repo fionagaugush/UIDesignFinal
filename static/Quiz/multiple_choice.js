@@ -1,5 +1,10 @@
 // Start quiz when start button is clicked
 $(document).ready(function() {
+
+ $("#home_nav").removeClass("active")
+ $("#quiz_nav").addClass("active")
+ $("#learn_nav").removeClass("active")
+
     display_choices();
 
     // Hide next question button until a choice is made
@@ -127,12 +132,16 @@ function give_feedback(choice, correct_answer, is_correct) {
         user_choice_bird_path = find_bird_path(choice, birds_list);
         correct_choice_bird_path = find_bird_path(correct_answer, birds_list);
         //if the correct answer is not a bird (true/false), the path will be "", do not make it linked
-        if (user_choice_bird_path != "" & correct_choice_bird_path != ""){
+        if (user_choice_bird_path != "" ){
         user_choice_link = "<a href='" + user_choice_bird_path + "'>" + choice + "</a>";
+        }
+        if (correct_choice_bird_path != ""){
         correct_choice_link = "<a href='" + correct_choice_bird_path + "'>" + correct_answer + "</a>";
         }
-        else{
+        if(user_choice_bird_path == "" ) {
           user_choice_link = "<span>" + choice + "</span>";
+        }
+        if(correct_choice_bird_path == "" ) {
           correct_choice_link = "<span>" + correct_answer + "</span>"
         }
 
@@ -146,6 +155,23 @@ function give_feedback(choice, correct_answer, is_correct) {
 
 function find_bird_path(bird_name, birds) {
     let path = "";
+    //manually accounting for the question with the 2 birds at once
+    if (bird_name== "Mourning Dove + Cardinal"){
+     path = "/compare/0/4"
+     return path
+    }
+    if (bird_name == "Red Tailed Hawk + Cardinal"){
+         path = "/compare/2/4"
+         return path
+
+
+    }
+
+    if (bird_name == "House Sparrow + Mourning Dove"){
+     path = "/compare/3/0"
+     return path
+
+    }
 
     for (var bird_id in birds) {
         let bird = birds[bird_id];

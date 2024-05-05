@@ -1,6 +1,10 @@
 // Start quiz when start button is clicked
 $(document).ready(function() {
 
+ $("#home_nav").removeClass("active")
+ $("#quiz_nav").addClass("active")
+ $("#learn_nav").removeClass("active")
+
     if (current_question <= 1) {
         $("#continue-quiz-button").hide();
     }

@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+ $("#home_nav").removeClass("active")
+  $("#quiz_nav").removeClass("active")
+   $("#learn_nav").addClass("active")
+
+
     for (var key in birds) {
         var bird = birds[key];
 

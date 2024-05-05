@@ -1,4 +1,13 @@
 $(document).ready(function() {
+
+
+
+
+
+ $("#home_nav").removeClass("active")
+  $("#quiz_nav").removeClass("active")
+   $("#learn_nav").addClass("active")
+
   var play = document.getElementById("listen_more");
 var audio = document.getElementById("audio_more");
  $("#listen_more").click(function() {

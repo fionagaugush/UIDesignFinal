@@ -2,7 +2,7 @@ body {
     background-color: #fcf8ef;
     /*background-color: #ebfaff;*/
     /* TODO: confirm sans-serif font */
-    /*font-family: Futura, "Trebuchet MS", Arial, sans-serif;*/
+      font-family: 'Trebuchet MS', sans-serif;
 }
 
 .bird-btn-learn {
@@ -18,6 +18,8 @@ body {
 .bird-btn-learn:hover {
     color: #fff;
 }
+
+
 
 .bird-btn-quiz {
     border-radius: 1.5rem;
@@ -424,4 +426,17 @@ body {
 .space-in-bet {
     display: flex;
     justify-content: space-between;
+}
+
+
+.btn-outline-success:hover{
+    background-color:#0879bf;
+
+}
+
+
+.btn-outline-success{
+    color:#0879bf;
+    border-color:#0879bf;
+
 }
