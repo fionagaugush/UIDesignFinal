@@ -183,8 +183,8 @@ data = {
             "questionText": "Listen to the audio mashup and identify the two birds in it",
             "audioURL": "birds_audio/MourningDove_and_Cardinal.mp3",
             "choices": [
-                "Mourning Dove + Cardinal",
-                "Red Tailed Hawk + Cardinal",
+                "Mourning Dove + Northern Cardinal",
+                "Red Tailed Hawk + Northern Cardinal",
                 "House Sparrow + Mourning Dove",
                 "None of the Above"
             ],
