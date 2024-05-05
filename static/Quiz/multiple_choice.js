@@ -124,16 +124,25 @@ function give_feedback(choice, correct_answer, is_correct) {
     else {
         let header = $("<h3 class='feedback-fail'>Incorrect</h3>").addClass("incorrect-text");
 
-        user_choice_bird_path = find_bird_path(choice, birds_list);
-        correct_choice_bird_path = find_bird_path(correct_answer, birds_list);
-        //if the correct answer is not a bird (true/false), the path will be "", do not make it linked
-        if (user_choice_bird_path != "" & correct_choice_bird_path != ""){
-        user_choice_link = "<a href='" + user_choice_bird_path + "'>" + choice + "</a>";
-        correct_choice_link = "<a href='" + correct_choice_bird_path + "'>" + correct_answer + "</a>";
+        user_choice_birds = choice.split(" + ");
+        correct_choice_birds = correct_answer.split(" + ");
+
+        let user_choice_link = "";
+        let correct_choice_link = "";
+
+        //Form hyperlinks for each bird in the user's choice and the correct answer
+        for (let i = 0; i < user_choice_birds.length; i++) {
+            user_choice_link += form_hyperlink_from_bird(user_choice_birds[i]);
+            if (i != user_choice_birds.length - 1) {
+                user_choice_link += " + ";
+            }
         }
-        else{
-          user_choice_link = "<span>" + choice + "</span>";
-          correct_choice_link = "<span>" + correct_answer + "</span>"
+
+        for (let i = 0; i < correct_choice_birds.length; i++) {
+            correct_choice_link += form_hyperlink_from_bird(correct_choice_birds[i]);
+            if (i != correct_choice_birds.length - 1) {
+                correct_choice_link += " + ";
+            }
         }
 
         let user_choice = $("<p> <span class='grey-text'> You selected: </span> " + user_choice_link + "</p>");
@@ -144,11 +153,25 @@ function give_feedback(choice, correct_answer, is_correct) {
     }
 }
 
-function find_bird_path(bird_name, birds) {
+
+function form_hyperlink_from_bird(bird_name) {
+
+    let path = find_bird_path(bird_name);
+
+    //if the correct answer is not a bird (true/false), the path will be "", do not make it linked
+    if (path == "") {
+        return bird_name;
+    }
+    else {
+        return "<a href='" + path + "'>" + bird_name + "</a>";
+    }
+}
+
+function find_bird_path(bird_name) {
     let path = "";
 
-    for (var bird_id in birds) {
-        let bird = birds[bird_id];
+    for (var bird_id in birds_list) {
+        let bird = birds_list[bird_id];
         if (bird["name"] == bird_name) {
             path = "/learn/" + bird["id"];
 
@@ -157,8 +180,5 @@ function find_bird_path(bird_name, birds) {
         }
 
     }
-
     return path;
 }
-
-

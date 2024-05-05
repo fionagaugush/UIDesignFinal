@@ -76,6 +76,5 @@ def quiz_results():
     return render_template('Quiz/quiz_results.html', score=data['user']['quizScore'], total_num_questions=len(data['quizQuestions']))
 
 
-
 if __name__ == '__main__':
     app.run()
