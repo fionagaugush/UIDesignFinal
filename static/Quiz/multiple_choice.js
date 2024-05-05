@@ -1,5 +1,10 @@
 // Start quiz when start button is clicked
 $(document).ready(function() {
+
+ $("#home_nav").removeClass("active")
+ $("#quiz_nav").addClass("active")
+ $("#learn_nav").removeClass("active")
+
     display_choices();
 
     // Hide next question button until a choice is made
@@ -48,7 +53,7 @@ function display_choices() {
         choice_button.attr("id", i);
         choice_button.click(handle_choice_click);
 
-    
+
         $("#choices").append(choice_button);
         $("#choices").append("<br>");
     }
@@ -66,7 +71,7 @@ function handle_choice_click() {
     if (choice_id == correct_answer_id) {
         $(this).addClass("correct");
         awarded_points = 1;
-        
+
     } else {
         $(this).addClass("incorrect");
         let correct_choice = $("#" + correct_answer_id);
@@ -78,15 +83,15 @@ function handle_choice_click() {
 
 
     //Update User data
-    let user_data = {        
+    let user_data = {
         "step": 2,
         "currentQuizQuestion": question_number + 1, // User is now on the next question
         "quizScore": parseInt($("#score-value").text()) + awarded_points
     };
-    
+
     save_user_data(user_data);
 
-    
+
 
     give_feedback($(this).text(), $("#" + correct_answer_id).text(), awarded_points);
 
@@ -124,25 +129,20 @@ function give_feedback(choice, correct_answer, is_correct) {
     else {
         let header = $("<h3 class='feedback-fail'>Incorrect</h3>").addClass("incorrect-text");
 
-        user_choice_birds = choice.split(" + ");
-        correct_choice_birds = correct_answer.split(" + ");
-
-        let user_choice_link = "";
-        let correct_choice_link = "";
-
-        //Form hyperlinks for each bird in the user's choice and the correct answer
-        for (let i = 0; i < user_choice_birds.length; i++) {
-            user_choice_link += form_hyperlink_from_bird(user_choice_birds[i]);
-            if (i != user_choice_birds.length - 1) {
-                user_choice_link += " + ";
-            }
+        user_choice_bird_path = find_bird_path(choice, birds_list);
+        correct_choice_bird_path = find_bird_path(correct_answer, birds_list);
+        //if the correct answer is not a bird (true/false), the path will be "", do not make it linked
+        if (user_choice_bird_path != "" ){
+        user_choice_link = "<a href='" + user_choice_bird_path + "'>" + choice + "</a>";
         }
-
-        for (let i = 0; i < correct_choice_birds.length; i++) {
-            correct_choice_link += form_hyperlink_from_bird(correct_choice_birds[i]);
-            if (i != correct_choice_birds.length - 1) {
-                correct_choice_link += " + ";
-            }
+        if (correct_choice_bird_path != ""){
+        correct_choice_link = "<a href='" + correct_choice_bird_path + "'>" + correct_answer + "</a>";
+        }
+        if(user_choice_bird_path == "" ) {
+          user_choice_link = "<span>" + choice + "</span>";
+        }
+        if(correct_choice_bird_path == "" ) {
+          correct_choice_link = "<span>" + correct_answer + "</span>"
         }
 
         let user_choice = $("<p> <span class='grey-text'> You selected: </span> " + user_choice_link + "</p>");
@@ -153,25 +153,28 @@ function give_feedback(choice, correct_answer, is_correct) {
     }
 }
 
-
-function form_hyperlink_from_bird(bird_name) {
-
-    let path = find_bird_path(bird_name);
-
-    //if the correct answer is not a bird (true/false), the path will be "", do not make it linked
-    if (path == "") {
-        return bird_name;
-    }
-    else {
-        return "<a href='" + path + "'>" + bird_name + "</a>";
-    }
-}
-
-function find_bird_path(bird_name) {
+function find_bird_path(bird_name, birds) {
     let path = "";
+    //manually accounting for the question with the 2 birds at once
+    if (bird_name== "Mourning Dove + Cardinal"){
+     path = "/compare/0/4"
+     return path
+    }
+    if (bird_name == "Red Tailed Hawk + Cardinal"){
+         path = "/compare/2/4"
+         return path
 
-    for (var bird_id in birds_list) {
-        let bird = birds_list[bird_id];
+
+    }
+
+    if (bird_name == "House Sparrow + Mourning Dove"){
+     path = "/compare/3/0"
+     return path
+
+    }
+
+    for (var bird_id in birds) {
+        let bird = birds[bird_id];
         if (bird["name"] == bird_name) {
             path = "/learn/" + bird["id"];
 
@@ -180,5 +183,9 @@ function find_bird_path(bird_name) {
         }
 
     }
+
     return path;
 }
+
+
+
