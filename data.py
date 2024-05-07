@@ -185,7 +185,7 @@ data = {
             "choices": [
                 "Mourning Dove + Northern Cardinal",
                 "Red Tailed Hawk + Northern Cardinal",
-                "House Sparrow + Mourning Dove",
+                "Tufted Titmouse + Mourning Dove",
                 "None of the Above"
             ],
             "correctAnswer": 0
