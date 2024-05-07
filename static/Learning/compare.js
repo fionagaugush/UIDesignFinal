@@ -1,10 +1,9 @@
 $(document).ready(function() {
 
-
-
  $("#home_nav").removeClass("active")
-  $("#quiz_nav").removeClass("active")
-   $("#learn_nav").addClass("active")
+ $("#quiz_nav").removeClass("active")
+ $("#comp_nav").addClass("active")
+ $("#learn_nav").removeClass("active")
 
 var bird1 = document.getElementById('bird1');
 

@@ -3,7 +3,7 @@ $(document).ready(function() {
 
 
 
-
+ $("#comp_nav").removeClass("active")
  $("#home_nav").removeClass("active")
   $("#quiz_nav").removeClass("active")
    $("#learn_nav").addClass("active")
